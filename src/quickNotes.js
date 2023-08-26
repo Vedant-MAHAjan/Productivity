@@ -1,7 +1,7 @@
 // PomodoroTimer.js
 
 import React, { Component } from 'react';
-import './App.css';
+import './QuickNotes.css';
 
 class quickNotes extends Component {
     constructor(props) {
@@ -39,9 +39,7 @@ class quickNotes extends Component {
     render() {
         // ... (previous JSX)
 
-        return (
-            <div className="pomodoro-timer">
-                {/* ... (previous JSX) */}                
+        return (              
                 <div className="quick-notes">
                     <h2>Quick Notes</h2>
                     <input
@@ -59,7 +57,7 @@ class quickNotes extends Component {
                         ))}
                     </ul>
                 </div>
-            </div>
+
         );
     }
 }

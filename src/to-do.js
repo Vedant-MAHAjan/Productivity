@@ -1,22 +1,18 @@
 
 import React, { Component } from 'react';
-import './App.css'; // Make sure to adjust the path based on your project structure
+import './ToDoList.css';
+
 
 class ToDoList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            time: 1500, // 25 minutes in seconds
-            isRunning: false,
+        this.state = {            
             task: '',
             tasks: [],
-        };
-
-        this.timer = null;
+            completedTasks: [], // New array to track completed tasks
+        };        
     }
-
-    // ... (previous code)
 
     handleTaskChange = (event) => {
         this.setState({ task: event.target.value });
@@ -41,39 +37,49 @@ class ToDoList extends Component {
         this.setState({ tasks: [] });
     };
 
+    markAsCompleted = (index) => {
+        const { completedTasks } = this.state;
+
+        if (!completedTasks.includes(index)) {
+            this.setState((prevState) => ({
+                completedTasks: [...prevState.completedTasks, index],
+            }));
+        }
+    };
 
     render() {
-        const { time, isRunning, task, tasks } = this.state;
+        const { task, tasks, completedTasks } = this.state;
 
         return (
-            <div className="pomodoro-timer">
-                {/* ... (previous JSX) */}
-                <div className="tasks">
-                    <h2>To-Do List</h2>
-                    <input
-                        type="text"
-                        value={task}
-                        onChange={this.handleTaskChange}
-                        placeholder="Enter a task"
-                    />
-                    <ul>
-                        {tasks.map((task, index) => (
-                            <li key={index}>
-                                {task}
-                                <button onClick={() => this.removeTask(index)}>Remove</button>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="button-container">
-                        <button onClick={this.addTask} className="add-button">
-                            Add Task
-                        </button>
-                        <button onClick={this.clearAllTasks} className="clear-button">
-                            Clear All
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <div className="tasks">
+                <h2>To-Do List</h2>
+                <input
+                    type="text"
+                    value={task}
+                    onChange={this.handleTaskChange}
+                    placeholder="Enter task"
+                />
+                <button onClick={this.addTask}>Add Task</button>
+                <ul>
+                    {tasks.map((task, index) => (
+                        <li key={index} className={completedTasks.includes(index) ? 'completed' : ''}>
+                            {completedTasks.includes(index) ? (
+                                <del>{task}</del>
+                            ) : (
+                                <>
+                                    {task}
+                                    <button onClick={() => this.markAsCompleted(index)}>
+                                        <span role="img" aria-label="cross">
+                                            ❌
+                                        </span>
+                                    </button>
+                                </>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+                <button onClick={this.clearAllTasks}>Clear All</button>
+            </div>            
         );
     }
 }

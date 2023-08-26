@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './PomodoroTimer.css';
+
 
 class PomodoroTimer extends Component {
     constructor(props) {
@@ -7,6 +9,8 @@ class PomodoroTimer extends Component {
         this.state = {
             time: 1500, // 25 minutes in seconds
             isRunning: false,
+            isBreakTime: false, // Added state to track break time
+
         };
 
         this.timer = null;
@@ -41,19 +45,30 @@ class PomodoroTimer extends Component {
         }
     };
 
+    startBreakTimer = () => {
+        this.setState({ time: 300, isRunning: true, isBreakTime: true }); // 5 minutes in seconds
+        this.timer = setInterval(this.tick, 1000);
+    };
+
     render() {
-        const { time, isRunning } = this.state;
+        const { time, isRunning, isBreakTime } = this.state;
 
         return (
             <div className="pomodoro-timer">
                 <h1>Pomodoro Timer</h1>
                 <div className="timer">{this.formatTime(time)}</div>
+                {isRunning && (
+                    <div className="timer-text">
+                        {isBreakTime ? 'Break Time!' : 'Time to focus'}
+                    </div>
+                )}
                 <div className="buttons">
                     {!isRunning ? (
                         <button onClick={this.startTimer}>Start</button>
                     ) : (
                         <button onClick={this.pauseTimer}>Pause</button>
                     )}
+                    <button onClick={this.startBreakTimer}>Break</button>
                     <button onClick={this.resetTimer}>Reset</button>
                 </div>
             </div>

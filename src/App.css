@@ -1,16 +1,15 @@
 /* App.css */
 
-.pomodoro-timer {
+.app {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
-.timer {
-  font-size: 3rem;
-  margin: 20px 0;
+.tab-buttons {
+  margin-bottom: 20px;
 }
 
-.buttons button {
+.tab-buttons button {
   background-color: #3498db;
   color: #fff;
   border: none;
@@ -22,149 +21,6 @@
   transition: background-color 0.3s ease;
 }
 
-.buttons button:hover {
+.tab-buttons button:hover {
   background-color: #2980b9;
-}
-
-/* PomodoroTimer.css */
-
-.pomodoro-timer {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.timer {
-  font-size: 3rem;
-  margin: 20px 0;
-}
-
-.tasks {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  align-items: center; /* Center the buttons vertically */
-  margin-top: 10px;
-}
-
-.tasks h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.tasks input {
-  padding: 5px;
-  font-size: 1rem;
-  width: 200px;
-  margin-right: 10px;
-  margin-bottom: 10px; /* Add margin at the bottom of the input */
-}
-
-.tasks button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px; /* Add margin at the bottom of the button */
-  margin-right: 10px; /* Add margin between buttons */
-
-
-}
-
-.tasks button:hover {
-  background-color: #2980b9;
-}
-
-.tasks ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.tasks li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px 0;
-  width: 100%;
-  display: flex;
-  border-bottom: 1px solid #ddd; /* Add a border between task items */
-
-}
-
-.tasks li button {
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
-  padding: 3px 6px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-left: 10px; /* Add margin to the left side of the button */
-}
-
-.tasks li button:hover {
-  background-color: #c0392b;
-}
-
-.quick-notes {
-  margin: 30px auto; /* Center the container horizontally */
-  max-width: 960px; /* Set a maximum width for the container */
-}
-
-.quick-notes h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.quick-notes input {
-  padding: 5px;
-  font-size: 1rem;
-  width: 200px;
-  margin-right: 10px;
-  margin-bottom: 10px; /* Add margin at the bottom of the input */
-}
-
-.quick-notes .add-button {
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
-  padding: 3px 6px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-left: 10px; /* Add margin to the left side of the button */
-
-}
-
-.quick-notes ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between; /* Distribute cards evenly */
-  flex-wrap: wrap;
-}
-
-.quick-notes li {
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 20px; /* Add more space between rows */
-  width: calc(33.33% - 20px); /* Distribute 3 cards in a row with margins */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box; /* Include padding and border in width calculation */
 }
