@@ -41,7 +41,7 @@ class quickNotes extends Component {
 
         return (              
                 <div className="quick-notes">
-                    <h2>Quick Notes</h2>
+                    <h2 className="notes-title">Quick Notes</h2>
                     <input
                         type="text"
                         value={this.state.quickNote}

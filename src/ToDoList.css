@@ -4,6 +4,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background-color: #f9f9f9; */
+  background-color: #C8A2C8;
+  padding: 20px;
+  /* border-radius: 5px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #333;
+}
+
+.title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .button-container {
@@ -11,6 +24,7 @@
   justify-content: center; /* Center the buttons horizontally */
   align-items: center; /* Center the buttons vertically */
   margin-top: 10px;
+  
 }
 
 .tasks h2 {
@@ -19,30 +33,38 @@
 }
 
 .tasks input {
-  padding: 5px;
-  font-size: 1rem;
   width: 200px;
   margin-right: 10px;
-  margin-bottom: 10px; /* Add margin at the bottom of the input */
+
+  padding: 10px;
+  font-size: 1rem;
+  /* width: 100%; */
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #3498db;
+  color: #333;
 }
 
+
+
 .tasks button {
-  background-color: #3498db;
+  margin-bottom: 10px; /* Add margin at the bottom of the button */
+  margin-right: 10px; /* Add margin between buttons */
+
+  background-color: #e74c3c;
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  margin-bottom: 10px; /* Add margin at the bottom of the button */
-  margin-right: 10px; /* Add margin between buttons */
 
 
 }
 
 .tasks button:hover {
-  background-color: #2980b9;
+  background-color: #c0392b;
 }
 
 .tasks ul {
@@ -52,13 +74,14 @@
 }
 
 .tasks li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 5px 0;
-  width: 100%;
-  display: flex;
-  border-bottom: 1px solid #ddd; /* Add a border between task items */
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -66,12 +89,11 @@
   background-color: #e74c3c;
   color: #fff;
   border: none;
-  padding: 3px 6px;
+  padding: 5px 10px;
   font-size: 0.8rem;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  margin-left: 10px; /* Add margin to the left side of the button */
 }
 
 .tasks li button:hover {
@@ -80,4 +102,5 @@
 
 .completed {
   text-decoration: line-through;
+  color: #555;
 }

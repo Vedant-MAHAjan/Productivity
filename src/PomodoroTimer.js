@@ -55,7 +55,7 @@ class PomodoroTimer extends Component {
 
         return (
             <div className="pomodoro-timer">
-                <h1>Pomodoro Timer</h1>
+                <h1 className="pomodoro-title">Pomodoro Timer</h1>
                 <div className="timer">{this.formatTime(time)}</div>
                 {isRunning && (
                     <div className="timer-text">
