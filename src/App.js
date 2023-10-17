@@ -6,6 +6,8 @@ import QuickNotes from './quickNotes';
 import DistractionBlocker from './DistractionBlocker';
 import DailyInsights from './DailyInsights';
 import QuoteOfTheDay from './QuoteOfTheDay';
+import { ToastProvider } from 'react-toast-notifications';
+
 
 function App() {
   const [activeTab, setActiveTab] = useState('pomodoro');
@@ -15,6 +17,7 @@ function App() {
   };
 
   return (
+    <ToastProvider>
     <div className="app">
       <div className="tab-buttons">
         <button onClick={() => handleTabChange('pomodoro')}>Pomodoro</button>
@@ -31,6 +34,7 @@ function App() {
       {activeTab === 'dailyinsights' && <DailyInsights />}
       {activeTab === 'quoteOfTheDay' && <QuoteOfTheDay />}
     </div>
+    </ToastProvider>
   );
 }
 
