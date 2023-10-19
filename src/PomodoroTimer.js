@@ -43,13 +43,52 @@ class PomodoroTimer extends Component {
         addToast(suggestion, { appearance: 'info' }); // Show a toast message
     };
 
-    tick = () => {
+    // tick = () => {
+    //     if (this.state.time > 0) {
+    //         this.setState({ time: this.state.time - 1500 });
+    //     } else {
+    //         this.pauseTimer();
+    //         this.showExerciseSuggestion();
+    //     }
+    // };
+
+    // tick = () => {
+    //     if (this.state.time > 0) {
+    //       this.setState({ time: this.state.time - 1500 });
+    //     } else {
+    //       this.pauseTimer();
+    //       // Save completed session to localStorage
+    //       const completedSession = {
+    //         workTime: 1500, // Assuming 25 minutes for Pomodoro session
+    //         // You can add more details if needed
+    //       };
+    //       const sessions = JSON.parse(localStorage.getItem('pomodoroSessions')) || [];
+    //       sessions.push(completedSession);
+    //       localStorage.setItem('pomodoroSessions', JSON.stringify(sessions));
+    
+    //       // Show exercise suggestion
+    //       this.showExerciseSuggestion();
+    //     }
+    //   }
+
+      tick = () => {
         if (this.state.time > 0) {
             this.setState({ time: this.state.time - 1500 });
         } else {
             this.pauseTimer();
             this.showExerciseSuggestion();
+            this.updateFocusedWorkTime(); // Call the function to update focused work time
         }
+    };
+
+    updateFocusedWorkTime = () => {
+        // Update focused work time by adding 25 minutes (1500 seconds)
+        this.setState((prevState) => ({
+            focusedWorkTime: prevState.focusedWorkTime + 1500,
+        }));
+        // Increment Pomodoro sessions count
+        const sessions = localStorage.getItem('pomodoroSessions');
+        localStorage.setItem('pomodoroSessions', sessions ? parseInt(sessions) + 1 : 1);
     };
 
     startBreakTimer = () => {
