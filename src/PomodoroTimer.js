@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './PomodoroTimer.css';
-
+import { useToasts } from 'react-toast-notifications';
 
 class PomodoroTimer extends Component {
     constructor(props) {
@@ -10,7 +10,6 @@ class PomodoroTimer extends Component {
             time: 1500, // 25 minutes in seconds
             isRunning: false,
             isBreakTime: false, // Added state to track break time
-
         };
 
         this.timer = null;
@@ -37,11 +36,19 @@ class PomodoroTimer extends Component {
         clearInterval(this.timer);
     };
 
+    showExerciseSuggestion = () => {
+        const { addToast } = this.props; // Use the addToast function from props
+        const suggestion = "Time for a quick exercise break!\nStretch, walk, or do some jumping jacks.";
+
+        addToast(suggestion, { appearance: 'info' }); // Show a toast message
+    };
+
     tick = () => {
         if (this.state.time > 0) {
-            this.setState({ time: this.state.time - 1 });
+            this.setState({ time: this.state.time - 1500 });
         } else {
             this.pauseTimer();
+            this.showExerciseSuggestion();
         }
     };
 
@@ -55,7 +62,7 @@ class PomodoroTimer extends Component {
 
         return (
             <div className="pomodoro-timer">
-                <h1>Pomodoro Timer</h1>
+                <h1 className="pomodoro-title">Pomodoro Timer</h1>
                 <div className="timer">{this.formatTime(time)}</div>
                 {isRunning && (
                     <div className="timer-text">
@@ -76,4 +83,9 @@ class PomodoroTimer extends Component {
     }
 }
 
-export default PomodoroTimer;
+export default function PomodoroTimerWithToast(props) {
+    const { addToast } = useToasts(); // Use the useToasts hook
+
+    return <PomodoroTimer {...props} addToast={addToast} />;
+}
+

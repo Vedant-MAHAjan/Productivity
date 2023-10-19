@@ -52,14 +52,14 @@ class ToDoList extends Component {
 
         return (
             <div className="tasks">
-                <h2>To-Do List</h2>
+                <h2 className="title">To-Do List</h2>
                 <input
                     type="text"
                     value={task}
                     onChange={this.handleTaskChange}
                     placeholder="Enter task"
                 />
-                <button onClick={this.addTask}>Add Task</button>
+                <button className="add-button" onClick={this.addTask}>Add Task</button>
                 <ul>
                     {tasks.map((task, index) => (
                         <li key={index} className={completedTasks.includes(index) ? 'completed' : ''}>
