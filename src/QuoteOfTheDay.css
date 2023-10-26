@@ -1,0 +1,64 @@
+/* QuoteOfTheDay.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color:  #E6E6FA ;
+  }
+  
+  .quote-container {
+    background-color: #C8A2C8; /* Purple background */
+    border: 1px solid #3498db; /* Light blue border */
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px 0; /* Moves the quote box closer to the button */
+    color: #fff; /* White text */
+  }
+  
+  .quote {
+    margin-top: 20px;
+  }
+  
+  .quote-text {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #fff; /* White text */
+  }
+  
+  .quote-author {
+    font-size: 14px;
+    color: #eee; /* Light gray text */
+    margin-top: 10px;
+  }
+  
+  loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
+  
+  button {
+    background-color: #C8A2C8; /* Lavender pink background */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #A682A6; /* Slightly darker lavender pink on hover */
+  }
+  

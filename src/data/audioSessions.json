@@ -1,0 +1,54 @@
+[
+    {
+      "title": "Session 1",
+      "audioSrc": "/audio/session1.mp3",
+      "duration": "10:40"
+    },
+    {
+      "title": "Session 2",
+      "audioSrc": "/audio/session2.mp3",
+      "duration": "21:46"
+    },
+    {
+      "title": "Session 3",
+      "audioSrc": "/audio/session3.mp3",
+      "duration": "14:24"
+    },
+    {
+      "title": "Session 4",
+      "audioSrc": "/audio/session4.mp3",
+      "duration": "9:00"
+    },
+    {
+      "title": "Session 5",
+      "audioSrc": "/audio/session5.mp3",
+      "duration": "2:59"
+    },
+    {
+      "title": "Session 6",
+      "audioSrc": "/audio/session6.mp3",
+      "duration": "21:52"
+    },
+    {
+      "title": "Session 7",
+      "audioSrc": "/audio/session7.mp3",
+      "duration": "22:38"
+    },
+    {
+        "title": "Session 8",
+        "audioSrc": "/audio/session8.mp3",
+        "duration": "5:27"
+      },
+      {
+        "title": "Session 9",
+        "audioSrc": "/audio/session9.mp3",
+        "duration": "9:26"
+      },
+      {
+        "title": "Session 10",
+        "audioSrc": "/audio/session10.mp3",
+        "duration": "6:24"
+      }
+    
+  ]
+  
