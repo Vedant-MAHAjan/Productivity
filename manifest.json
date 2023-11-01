@@ -10,31 +10,15 @@
     ],
     "action": {
       "default_popup": "index.html",
-      "default_icon": {
-        "16": "images/icon-16.png",
-        "48": "images/icon-48.png",
-        "128": "images/icon-128.png"
-      },
       "default_title": "Productivity Tools"
-    },
-    "icons": {
-      "16": "images/icon-16.png",
-      "48": "images/icon-48.png",
-      "128": "images/icon-128.png"
     },
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["index.js","App.js","Navigation.js","PomodoroTimer.js","to-do.js","quickNotes.js","DailyInsights.js","QuoteOfTheDay.js","ProductivityTips.js","TimeManagement.js","Meditation.js"]
+        "js": ["index.js"]
       }
     ],
     "browser_action": {
-      "default_popup": "index.html",
-      "default_icon": {
-        "16": "images/icon-16.png",
-        "48": "images/icon-48.png",
-        "128": "images/icon-128.png"
-      }
+      "default_popup": "index.html"
     }
-  }
-  
+}
