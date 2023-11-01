@@ -6,13 +6,20 @@ class PomodoroTimer extends Component {
     constructor(props) {
         super(props);
 
+        const storedTime = localStorage.getItem('pomodoroTime');
         this.state = {
-            time: 1500, // 25 minutes in seconds
+            time: storedTime ? parseInt(storedTime, 10) : 1500, // 25 minutes in seconds
             isRunning: false,
             isBreakTime: false, // Added state to track break time
         };
 
         this.timer = null;
+    }
+
+    componentDidMount() {
+        if (this.state.isRunning) {
+            this.timer = setInterval(this.tick, 1000);
+        }
     }
 
     formatTime(seconds) {
@@ -22,78 +29,55 @@ class PomodoroTimer extends Component {
     }
 
     startTimer = () => {
-        this.setState({ isRunning: true });
-        this.timer = setInterval(this.tick, 1000);
+        this.setState({ isRunning: true }, () => {
+            this.timer = setInterval(this.tick, 1000);
+            localStorage.setItem('pomodoroTime', this.state.time.toString());
+        });
     };
 
     pauseTimer = () => {
-        this.setState({ isRunning: false });
-        clearInterval(this.timer);
+        this.setState({ isRunning: false }, () => {
+            clearInterval(this.timer);
+            localStorage.setItem('pomodoroTime', this.state.time.toString());
+        });
     };
 
     resetTimer = () => {
-        this.setState({ time: 1500, isRunning: false });
-        clearInterval(this.timer);
+        this.setState({ time: 1500, isRunning: false }, () => {
+            clearInterval(this.timer);
+            localStorage.removeItem('pomodoroTime');
+        });
     };
 
     showExerciseSuggestion = () => {
-        const { addToast } = this.props; // Use the addToast function from props
+        const { addToast } = this.props;
         const suggestion = "Time for a quick exercise break!\nStretch, walk, or do some jumping jacks.";
-
-        addToast(suggestion, { appearance: 'info' }); // Show a toast message
+        addToast(suggestion, { appearance: 'info' });
     };
 
-    // tick = () => {
-    //     if (this.state.time > 0) {
-    //         this.setState({ time: this.state.time - 1500 });
-    //     } else {
-    //         this.pauseTimer();
-    //         this.showExerciseSuggestion();
-    //     }
-    // };
-
-    // tick = () => {
-    //     if (this.state.time > 0) {
-    //       this.setState({ time: this.state.time - 1500 });
-    //     } else {
-    //       this.pauseTimer();
-    //       // Save completed session to localStorage
-    //       const completedSession = {
-    //         workTime: 1500, // Assuming 25 minutes for Pomodoro session
-    //         // You can add more details if needed
-    //       };
-    //       const sessions = JSON.parse(localStorage.getItem('pomodoroSessions')) || [];
-    //       sessions.push(completedSession);
-    //       localStorage.setItem('pomodoroSessions', JSON.stringify(sessions));
-    
-    //       // Show exercise suggestion
-    //       this.showExerciseSuggestion();
-    //     }
-    //   }
-
-      tick = () => {
+    tick = () => {
         if (this.state.time > 0) {
-            this.setState({ time: this.state.time - 1 }); //MAKE CHANGES HERE TO MAKE IT 1500 SECOND
+            this.setState({ time: this.state.time - 1 });
         } else {
             this.pauseTimer();
             this.showExerciseSuggestion();
-            this.updateFocusedWorkTime(); // Call the function to update focused work time
+            this.updateFocusedWorkTime();
         }
     };
 
     updateFocusedWorkTime = () => {
-        // Update focused work time by adding 25 minutes (1500 seconds)
         this.setState((prevState) => ({
             focusedWorkTime: prevState.focusedWorkTime + 1500,
         }));
-        // Increment Pomodoro sessions count
         const sessions = localStorage.getItem('pomodoroSessions');
         localStorage.setItem('pomodoroSessions', sessions ? parseInt(sessions) + 1 : 1);
     };
 
     startBreakTimer = () => {
-        this.setState({ time: 300, isRunning: true, isBreakTime: true }); // 5 minutes in seconds
-        this.timer = setInterval(this.tick, 1000);
+        this.setState({ time: 300, isRunning: true, isBreakTime: true }, () => {
+            this.timer = setInterval(this.tick, 1000);
+            localStorage.setItem('pomodoroTime', this.state.time.toString());
+        });
     };
 
     render() {
@@ -123,8 +107,6 @@ class PomodoroTimer extends Component {
 }
 
 export default function PomodoroTimerWithToast(props) {
-    const { addToast } = useToasts(); // Use the useToasts hook
-
+    const { addToast } = useToasts();
     return <PomodoroTimer {...props} addToast={addToast} />;
 }
-
