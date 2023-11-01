@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Productivity",
+    "version": "1.0",
+    "description": "Productivity Boost is a powerful productivity tool that helps you manage your time, tasks, and overall efficiency. It offers a suite of features to enhance your productivity, from the Pomodoro Timer to Daily Quotes for motivation.",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "tabs"
+    ],
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "images/icon-16.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+      },
+      "default_title": "Productivity Tools"
+    },
+    "icons": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["index.js","App.js","Navigation.js","PomodoroTimer.js","to-do.js","quickNotes.js","DailyInsights.js","QuoteOfTheDay.js","ProductivityTips.js","TimeManagement.js","Meditation.js"]
+      }
+    ],
+    "browser_action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "images/icon-16.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+      }
+    }
+  }
+  
