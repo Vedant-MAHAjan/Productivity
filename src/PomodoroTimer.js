@@ -73,7 +73,7 @@ class PomodoroTimer extends Component {
 
       tick = () => {
         if (this.state.time > 0) {
-            this.setState({ time: this.state.time - 1500 });
+            this.setState({ time: this.state.time - 1 }); //MAKE CHANGES HERE TO MAKE IT 1500 SECOND
         } else {
             this.pauseTimer();
             this.showExerciseSuggestion();
